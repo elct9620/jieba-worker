@@ -1,0 +1,13 @@
+{
+	"type": "module",
+	"scripts": {
+	  "dev": "wrangler dev",
+	  "build": "wrangler build",
+		"test": "pnpm build && vitest run"
+	},
+	"devDependencies": {
+		"miniflare": "^4.20250604.1",
+		"vitest": "^3.2.3",
+		"wrangler": "^4.20.0"
+	}
+}
