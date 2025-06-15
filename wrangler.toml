@@ -1,0 +1,6 @@
+name = "jieba-worker"
+main = "build/worker/shim.mjs"
+compatibility_date = "2025-06-15"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
