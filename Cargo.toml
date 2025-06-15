@@ -2,6 +2,9 @@
 name = "jieba-worker"
 version = "0.1.0"
 edition = "2021"
+description = "Cloudflare Worker RPC server export jieba-rs cut method"
+license = "MIT"
+repository = "https://github.com/elct9620/jieba-worker"
 authors = [ "Aotokitsuruya <contact@aotoki.me>" ]
 
 [package.metadata.release]

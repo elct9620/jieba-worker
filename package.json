@@ -1,5 +1,13 @@
 {
+  "name": "jieba-worker",
+  "description": "A Cloudflare Worker for Chinese text segmentation using Jieba",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elct9620/jieba-worker"
+  },
   "type": "module",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "wrangler dev",
     "build": "wrangler build",
