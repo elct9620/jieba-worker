@@ -459,6 +459,7 @@ version = "0.1.0"
 dependencies = [
  "console_error_panic_hook",
  "jieba-rs",
+ "wasm-bindgen",
  "worker",
  "worker-macros",
 ]
