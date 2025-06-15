@@ -1,7 +1,15 @@
-import { describe, it, expect,beforeAll, afterAll, beforeEach, afterEach } from 'vitest'
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  afterAll,
+  beforeEach,
+  afterEach,
+} from "vitest";
 import { Miniflare } from "miniflare";
 
-describe('RPC Service Worker', () => {
+describe("RPC Service Worker", () => {
   beforeEach(async (context) => {
     context.mf = new Miniflare({
       workers: [
@@ -11,8 +19,8 @@ describe('RPC Service Worker', () => {
           scriptPath: "./build/worker/shim.mjs",
           modules: true,
           modulesRules: [
-            { type: "CompiledWasm", include: ["**/*.wasm"], fallthrough: true }
-          ]
+            { type: "CompiledWasm", include: ["**/*.wasm"], fallthrough: true },
+          ],
         },
         {
           name: "app",
@@ -25,9 +33,9 @@ describe('RPC Service Worker', () => {
           return new Response(201)
         }
       }
-      `
-        }
-      ]
+      `,
+        },
+      ],
     });
   });
 
@@ -35,13 +43,15 @@ describe('RPC Service Worker', () => {
     await context.mf.dispose();
   });
 
-  it('should cut into 7 tokens', async ({ mf }) => {
-    const tokens = (await mf.getBindings("app")).jieba.cut("我愛自然語言處理")
-    expect(tokens).toHaveLength(7)
+  it("should cut into 7 tokens", async ({ mf }) => {
+    const tokens = (await mf.getBindings("app")).jieba.cut("我愛自然語言處理");
+    expect(tokens).toHaveLength(7);
   });
 
-  it('should cut into string array', async ({ mf }) => {
-    const tokens = (await mf.getBindings("app")).jieba.cut("我愛自然語言處理", { cutAll: false });
-    expect(tokens).toEqual(['我', '愛', '自然', '語', '言', '處', '理']);
+  it("should cut into string array", async ({ mf }) => {
+    const tokens = (await mf.getBindings("app")).jieba.cut("我愛自然語言處理", {
+      cutAll: false,
+    });
+    expect(tokens).toEqual(["我", "愛", "自然", "語", "言", "處", "理"]);
   });
 });
